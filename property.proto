@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package property;
+option go_package = ".;pb";
+
+
+message CheckPropertysRequest {
+    repeated CartItem cart_items = 1;
+}
+message CartItem {
+    uint64 property_id = 1;
+    int64 amount = 2;
+}
+message CheckPropertysResponse {
+    repeated PropertyStatus property_statuses = 1;
+}
+message PropertyStatus {
+    uint64 property_id = 1;
+    int64 price = 2;
+    Status status = 3;
+}
+enum Status {
+    STATUS_OK = 0;
+    STATUS_NOT_FOUND = 1;
+}
+message GetPropertysRequest {
+    repeated uint64 property_ids = 1;
+} 
+message Propertys {
+    repeated Property propertys = 1;
+}
+message Property {
+    uint64 property_id = 1;
+    string property_name = 2;
+    string description = 3;
+    string brand_name = 4;
+    int64 inventory = 5;
+    int64 price = 6;
+}
+service PropertyService {
+    rpc CheckPropertys(CheckPropertysRequest) returns (CheckPropertysResponse) {};
+    rpc GetPropertys(GetPropertysRequest) returns (Propertys) {};
+}
