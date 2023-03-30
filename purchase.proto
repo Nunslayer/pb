@@ -12,7 +12,7 @@ message Purchase {
     Payment payment = 2;
 }
 message Order {
-    uint64 customer_id = 1;
+    uint64 user_id = 1;
     repeated PurchasedItem purchased_items = 2;
 }
 message PurchasedItem {
@@ -39,12 +39,12 @@ message CreatePurchaseResponse {
     google.protobuf.Timestamp timestamp = 5;
 }
 message RollbackCmd {
-    uint64 customer_id = 1;
+    uint64 user_id = 1;
     uint64 purchase_id = 2;
     google.protobuf.Timestamp timestamp = 3;
 }
 message RollbackResponse {
-    uint64 customer_id = 1;
+    uint64 user_id = 1;
     uint64 purchase_id = 2;
     bool success = 3;
     string error = 4;
@@ -54,7 +54,7 @@ message RollbackResponse {
 
 // purchase result event
 message PurchaseResult {
-    uint64 customer_id = 1;
+    uint64 user_id = 1;
     uint64 purchase_id = 2;
     PurchaseStep step = 3;
     PurchaseStatus status = 4;
