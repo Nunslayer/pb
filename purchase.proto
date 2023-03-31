@@ -61,7 +61,7 @@ message PurchaseResult {
     google.protobuf.Timestamp timestamp = 5;
 }
 enum PurchaseStep {
-    STEP_UPDATE_property_INVENTORY = 0;
+    STEP_UPDATE_PROPERTY_INVENTORY = 0;
     STEP_CREATE_ORDER = 1;
     STEP_CREATE_PAYMENT = 2;
 }
