@@ -16,7 +16,7 @@ message Order {
     repeated PurchasedItem purchased_items = 2;
 }
 message PurchasedItem {
-    uint64 product_id = 1;
+    uint64 property_id = 1;
     int64 amount = 2;
 }
 message Payment {
@@ -61,7 +61,7 @@ message PurchaseResult {
     google.protobuf.Timestamp timestamp = 5;
 }
 enum PurchaseStep {
-    STEP_UPDATE_PRODUCT_INVENTORY = 0;
+    STEP_UPDATE_property_INVENTORY = 0;
     STEP_CREATE_ORDER = 1;
     STEP_CREATE_PAYMENT = 2;
 }
